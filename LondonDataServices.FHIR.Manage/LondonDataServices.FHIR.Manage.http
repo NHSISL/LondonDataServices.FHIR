@@ -1,0 +1,6 @@
+@LondonDataServices.FHIR.Manage_HostAddress = http://localhost:5034
+
+GET {{LondonDataServices.FHIR.Manage_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
