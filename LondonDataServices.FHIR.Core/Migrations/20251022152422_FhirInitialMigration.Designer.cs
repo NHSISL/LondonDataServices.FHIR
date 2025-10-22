@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LondonDataServices.FHIR.Core.Migrations
 {
     [DbContext(typeof(StorageBroker))]
-    [Migration("20251022151446_AddConsumerAccess")]
-    partial class AddConsumerAccess
+    [Migration("20251022152422_FhirInitialMigration")]
+    partial class FhirInitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LondonDataServices.FHIR.Core.Migrations
 {
     /// <inheritdoc />
-    public partial class AddConsumerAccess : Migration
+    public partial class FhirInitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
