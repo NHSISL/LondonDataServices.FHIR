@@ -5,7 +5,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using LondonDataServices.FHIR.Core.Models.Foundations;
+using LondonDataServices.FHIR.Core.Models.Foundations.Consumers;
 
 namespace LondonDataServices.FHIR.Core.Brokers.Storages.Sql
 {

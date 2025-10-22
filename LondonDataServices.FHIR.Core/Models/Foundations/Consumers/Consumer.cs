@@ -5,7 +5,7 @@
 using System;
 using LondonDataServices.FHIR.Core.Models.Bases;
 
-namespace LondonDataServices.FHIR.Core.Models.Foundations
+namespace LondonDataServices.FHIR.Core.Models.Foundations.Consumers
 {
     public class Consumer : IKey, IAudit
     {

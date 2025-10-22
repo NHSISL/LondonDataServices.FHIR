@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EFxceptions;
-using LondonDataServices.FHIR.Core.Models.Foundations;
+using LondonDataServices.FHIR.Core.Models.Foundations.Consumers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using STX.EFCore.Client.Clients;
