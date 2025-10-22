@@ -32,16 +32,21 @@ namespace LondonDataServices.FHIR.Core.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<DateTimeOffset>("CreatedDate")
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("OrgCode")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<DateTimeOffset>("UpdatedDate")
                         .HasColumnType("datetimeoffset");
@@ -50,7 +55,7 @@ namespace LondonDataServices.FHIR.Core.Migrations
 
                     b.HasIndex("ConsumerId");
 
-                    b.ToTable("ConsumerAccesses");
+                    b.ToTable("ConsumerAccesses", (string)null);
                 });
 
             modelBuilder.Entity("LondonDataServices.FHIR.Core.Models.Foundations.Consumers.Consumer", b =>
@@ -118,7 +123,7 @@ namespace LondonDataServices.FHIR.Core.Migrations
                     b.HasOne("LondonDataServices.FHIR.Core.Models.Foundations.Consumers.Consumer", "Consumer")
                         .WithMany("ConsumerAccesses")
                         .HasForeignKey("ConsumerId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Consumer");
