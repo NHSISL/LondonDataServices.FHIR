@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace LondonDataServices.FHIR.Core.Models.Foundations.ConsumerAccesses
 {
-
     public class ConsumerAccess : IKey, IAudit
     {
         public Guid Id { get; set; }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EFxceptions;
+using LondonDataServices.FHIR.Core.Models.Foundations.ConsumerAccesses;
 using LondonDataServices.FHIR.Core.Models.Foundations.Consumers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -43,6 +44,7 @@ namespace LondonDataServices.FHIR.Core.Brokers.Storages.Sql
         private static void AddConfigurations(ModelBuilder modelBuilder)
         {
             AddConsumerConfigurations(modelBuilder.Entity<Consumer>());
+            AddConsumerAccessConfigurations(modelBuilder.Entity<ConsumerAccess>());
         }
 
         private async ValueTask<T> InsertAsync<T>(T @object) where T : class =>
