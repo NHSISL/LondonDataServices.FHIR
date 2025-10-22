@@ -45,14 +45,8 @@ namespace LondonDataServices.FHIR.Core.Brokers.Storages.Sql
                 .HasMaxLength(20);
 
             model
-                .Property(consumer => consumer.ContactNotes);
-
-            model
                 .Property(consumer => consumer.ActiveFrom)
                 .IsRequired();
-
-            model
-                .Property(consumer => consumer.ActiveTo);
 
             model
                 .Property(consumer => consumer.CreatedBy)

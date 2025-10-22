@@ -18,7 +18,7 @@ namespace LondonDataServices.FHIR.Core.Brokers.Storages.Sql
             throw new NotImplementedException();
 
         public async ValueTask<IQueryable<Consumer>> SelectAllConsumersAsync() =>
-           throw new NotImplementedException();
+            throw new NotImplementedException();
 
         public async ValueTask<Consumer> SelectConsumerByIdAsync(Guid consumerId) =>
             throw new NotImplementedException();
