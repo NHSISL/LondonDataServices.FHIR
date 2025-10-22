@@ -3,7 +3,10 @@
 // ---------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 using LondonDataServices.FHIR.Core.Models.Bases;
+using LondonDataServices.FHIR.Core.Models.Foundations.ConsumerAccesses;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace LondonDataServices.FHIR.Core.Models.Foundations.Consumers
 {
@@ -22,5 +25,8 @@ namespace LondonDataServices.FHIR.Core.Models.Foundations.Consumers
         public DateTimeOffset CreatedDate { get; set; }
         public string UpdatedBy { get; set; }
         public DateTimeOffset UpdatedDate { get; set; }
+
+        [BindNever]
+        public List<ConsumerAccess> ConsumerAccesses { get; set; } = new List<ConsumerAccess>();
     }
 }
