@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LondonDataServices.FHIR.Core.Migrations
 {
     /// <inheritdoc />
-    public partial class AddConsumer : Migration
+    public partial class FhirInitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -34,6 +34,33 @@ namespace LondonDataServices.FHIR.Core.Migrations
                     table.PrimaryKey("PK_Consumers", x => x.Id);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ConsumerAccesses",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ConsumerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    OrgCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    CreatedDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    UpdatedDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ConsumerAccesses", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ConsumerAccesses_Consumers_ConsumerId",
+                        column: x => x.ConsumerId,
+                        principalTable: "Consumers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ConsumerAccesses_ConsumerId",
+                table: "ConsumerAccesses",
+                column: "ConsumerId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Consumers_Name",
                 table: "Consumers",
@@ -44,6 +71,9 @@ namespace LondonDataServices.FHIR.Core.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "ConsumerAccesses");
+
             migrationBuilder.DropTable(
                 name: "Consumers");
         }

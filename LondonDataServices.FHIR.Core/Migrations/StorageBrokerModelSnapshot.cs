@@ -22,7 +22,43 @@ namespace LondonDataServices.FHIR.Core.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("LondonDataServices.FHIR.Core.Models.Foundations.Consumer", b =>
+            modelBuilder.Entity("LondonDataServices.FHIR.Core.Models.Foundations.ConsumerAccesses.ConsumerAccess", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ConsumerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<DateTimeOffset>("CreatedDate")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("OrgCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdatedBy")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<DateTimeOffset>("UpdatedDate")
+                        .HasColumnType("datetimeoffset");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ConsumerId");
+
+                    b.ToTable("ConsumerAccesses", (string)null);
+                });
+
+            modelBuilder.Entity("LondonDataServices.FHIR.Core.Models.Foundations.Consumers.Consumer", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -80,6 +116,22 @@ namespace LondonDataServices.FHIR.Core.Migrations
                         .IsUnique();
 
                     b.ToTable("Consumers", (string)null);
+                });
+
+            modelBuilder.Entity("LondonDataServices.FHIR.Core.Models.Foundations.ConsumerAccesses.ConsumerAccess", b =>
+                {
+                    b.HasOne("LondonDataServices.FHIR.Core.Models.Foundations.Consumers.Consumer", "Consumer")
+                        .WithMany("ConsumerAccesses")
+                        .HasForeignKey("ConsumerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Consumer");
+                });
+
+            modelBuilder.Entity("LondonDataServices.FHIR.Core.Models.Foundations.Consumers.Consumer", b =>
+                {
+                    b.Navigation("ConsumerAccesses");
                 });
 #pragma warning restore 612, 618
         }

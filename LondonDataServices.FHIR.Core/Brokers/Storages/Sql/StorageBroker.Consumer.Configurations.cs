@@ -2,7 +2,7 @@
 // Copyright (c) North East London ICB. All rights reserved.
 // ---------------------------------------------------------
 
-using LondonDataServices.FHIR.Core.Models.Foundations;
+using LondonDataServices.FHIR.Core.Models.Foundations.Consumers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
