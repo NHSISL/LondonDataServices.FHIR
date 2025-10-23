@@ -15,18 +15,18 @@ namespace LondonDataServices.FHIR.Core.Brokers.Storages.Sql
         public DbSet<Consumer> Consumers { get; set; }
 
         public async ValueTask<Consumer> InsertConsumerAsync(Consumer consumer) =>
-            throw new NotImplementedException();
+            await InsertAsync(consumer);
 
         public async ValueTask<IQueryable<Consumer>> SelectAllConsumersAsync() =>
-            throw new NotImplementedException();
+            await SelectAllAsync<Consumer>();
 
         public async ValueTask<Consumer> SelectConsumerByIdAsync(Guid consumerId) =>
-            throw new NotImplementedException();
+            await SelectAsync<Consumer>(consumerId);
 
         public async ValueTask<Consumer> UpdateConsumerAsync(Consumer consumer) =>
-            throw new NotImplementedException();
+            await UpdateAsync(consumer);
 
         public async ValueTask<Consumer> DeleteConsumerAsync(Consumer consumer) =>
-            throw new NotImplementedException();
+            await DeleteAsync(consumer);
     }
 }
