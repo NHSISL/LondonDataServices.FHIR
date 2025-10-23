@@ -17,7 +17,7 @@ namespace LondonDataServices.FHIR.Core.Brokers.Storages.Sql
         public async ValueTask<ConsumerAccess> InsertConsumerAccessAsync(ConsumerAccess consumerAccess) =>
             await InsertAsync(consumerAccess);
 
-        public async ValueTask<IQueryable<ConsumerAccess>> SelectAllConsumerAccesssAsync() =>
+        public async ValueTask<IQueryable<ConsumerAccess>> SelectAllConsumerAccessesAsync() =>
             await SelectAllAsync<ConsumerAccess>();
 
         public async ValueTask<ConsumerAccess> SelectConsumerAccessByIdAsync(Guid consumerAccessId) =>
