@@ -12,7 +12,7 @@ namespace LondonDataServices.FHIR.Core.Brokers.Storages.Sql
     public partial interface IStorageBroker
     {
         ValueTask<ConsumerAccess> InsertConsumerAccessAsync(ConsumerAccess consumerAccess);
-        ValueTask<IQueryable<ConsumerAccess>> SelectAllConsumerAccesssAsync();
+        ValueTask<IQueryable<ConsumerAccess>> SelectAllConsumerAccessesAsync();
         ValueTask<ConsumerAccess> SelectConsumerAccessByIdAsync(Guid consumerAccessId);
         ValueTask<ConsumerAccess> UpdateConsumerAccessAsync(ConsumerAccess consumerAccess);
         ValueTask<ConsumerAccess> DeleteConsumerAccessAsync(ConsumerAccess consumerAccess);
